@@ -65,7 +65,7 @@ module.exports = {
     module: {
         loaders: loaders
     },
-    watch: true, // use webpacks watcher
+    watch: false, // use webpacks watcher
     watchOptions: {
         aggregateTimeout: 300,
         poll: true
