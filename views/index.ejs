@@ -27,6 +27,15 @@
                 <h1><%= title %></h1>
             </div>
             <div class="col-lg-12">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="listSearch">Search</label>
+                        <input type="text" class="form-control" id="listSearch" placeholder="Some params for search"
+                        v-model="filter.param">
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-12">
                 <table class="table table-striped">
                     <tr>
                         <th>

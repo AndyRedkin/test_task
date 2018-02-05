@@ -65,6 +65,10 @@ new _vue2.default({
       reverse: false,
       name: null
     },
+    filter: {
+      param: null,
+      filteredList: null
+    },
     modals: {
       edit: {
         show: false,
@@ -86,6 +90,19 @@ new _vue2.default({
     });
   },
 
+  watch: {
+    'filter.param': function filterParam(newValue) {
+      if (newValue) {
+        this.filter.filteredList = this.list.filter(function (item) {
+          for (var key in item) {
+            if (item[key].toString().toLowerCase().match(newValue)) {
+              return item;
+            }
+          }
+        });
+      }
+    }
+  },
   computed: {
     listCurrencySumm: function listCurrencySumm() {
       return this.list.map(function (item) {
@@ -95,8 +112,10 @@ new _vue2.default({
       }, 0);
     },
     sortedList: function sortedList() {
-      if (this.sortedParams.isSorted) {
-        return this.sortedParams.reverse ? this.list.sort(this.sorting(this.sortedParams.name, true)) : this.list.sort(this.sorting(this.sortedParams.name, false));
+      if (this.filter.param) {
+        return this.filter.filteredList;
+      } else if (this.sortedParams.isSorted) {
+        return this.list.sort(this.sorting(this.sortedParams.name, this.sortedParams.reverse));
       } else {
         return this.list;
       }
