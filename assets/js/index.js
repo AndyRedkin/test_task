@@ -229,7 +229,7 @@ new Vue({
   },
   computed: {
     listCurrencySumm() {
-      return this.list.map((item) => {
+      return this.sortedList.map((item) => {
         return item.currency
       })
         .reduce((prev, next) => {

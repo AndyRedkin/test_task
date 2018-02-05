@@ -2,26 +2,25 @@ webpackJsonp([0],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
-/* 3 */,
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(5);
-module.exports = __webpack_require__(10);
+__webpack_require__(4);
+module.exports = __webpack_require__(9);
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _vue = __webpack_require__(2);
+var _vue = __webpack_require__(1);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _vueResource = __webpack_require__(8);
+var _vueResource = __webpack_require__(7);
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
 
@@ -106,7 +105,7 @@ new _vue2.default({
   },
   computed: {
     listCurrencySumm: function listCurrencySumm() {
-      return this.list.map(function (item) {
+      return this.sortedList.map(function (item) {
         return item.currency;
       }).reduce(function (prev, next) {
         return prev + next;
@@ -172,9 +171,9 @@ new _vue2.default({
 });
 
 /***/ }),
+/* 5 */,
 /* 6 */,
-/* 7 */,
-/* 8 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1277,7 +1276,7 @@ function xhrClient (request) {
 
 function nodeClient (request) {
 
-    var client = __webpack_require__(9);
+    var client = __webpack_require__(8);
 
     return new PromiseObj(function (resolve) {
 
@@ -1753,17 +1752,17 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(11);
+var content = __webpack_require__(10);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -1777,7 +1776,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(12)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -1809,10 +1808,10 @@ if(false) {
 }
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(12)(false);
+exports = module.exports = __webpack_require__(11)(false);
 // imports
 
 
@@ -1823,7 +1822,7 @@ exports.push([module.i, "/*---FLEXBOX MODEL PREFIX---*/\n.btn__mdi {\n  backgrou
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 /*
@@ -1905,7 +1904,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1971,7 +1970,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(14);
+var	fixUrls = __webpack_require__(13);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2287,7 +2286,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 
@@ -2382,4 +2381,4 @@ module.exports = function (css) {
 
 
 /***/ })
-],[4]);
+],[3]);
