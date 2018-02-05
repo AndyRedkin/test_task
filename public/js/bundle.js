@@ -82,10 +82,14 @@ new _vue2.default({
   created: function created() {
     var _this = this;
 
-    return this.$http.get('/list').then(function (response) {
-      _this.list = response.list;
+    /**
+     * Получение списка итемов
+     */
+    return this.$http.get('/list').then(function (res) {
+      _this.list = res.list;
     }).catch(function (err) {
       console.log(err);
+      //Это пока хардкорно забитые данные так как нету нормального бека
       _this.list = window.list ? window.list : data;
     });
   },
@@ -132,12 +136,14 @@ new _vue2.default({
       return this.$http.post('/item', {
         list_item_id: this.modals.edit.index
       }).then(function (res) {
-        if (_this2.modals.edit.name === 'currency') {
-          _this2.list[_this2.modals.edit.index][_this2.modals.edit.name] = parseInt(_this2.modals.edit.value ? _this2.modals.edit.value : 0);
-        } else {
-          _this2.list[_this2.modals.edit.index][_this2.modals.edit.name] = _this2.modals.edit.value;
+        if (res) {
+          if (_this2.modals.edit.name === 'currency') {
+            _this2.list[_this2.modals.edit.index][_this2.modals.edit.name] = parseInt(_this2.modals.edit.value ? _this2.modals.edit.value : 0);
+          } else {
+            _this2.list[_this2.modals.edit.index][_this2.modals.edit.name] = _this2.modals.edit.value;
+          }
+          _this2.modals.edit.value = null;
         }
-        _this2.modals.edit.value = null;
       }).catch(function (error) {
         console.error(error);
         /**

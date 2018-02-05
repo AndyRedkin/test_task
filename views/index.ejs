@@ -17,7 +17,7 @@
 <!--Не лучший вариант конечно же, но при SSR вполне приемлимый-->
 <div id="list" data-list="<%- JSON.stringify(data).replace(/"/g, "&quot;") %>"></div>
 <script type="text/javascript">
-    window.list = JSON.parse(document.getElementById('list').dataset.list);
+  window.list = JSON.parse(document.getElementById('list').dataset.list);
 </script>
 <!---->
 <div id="app">
@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="listSearch">Search</label>
                         <input type="text" class="form-control" id="listSearch" placeholder="Some params for search"
-                        v-model="filter.param">
+                               v-model="filter.param">
                     </div>
                 </form>
             </div>
@@ -61,7 +61,8 @@
                             <button class="btn__mdi"
                                     @click="sortList('location', true)">
                                 <i class="mdi mdi-chevron-down"></i>
-                            </button></th>
+                            </button>
+                        </th>
                         <th>
                             currency
                             <button class="btn__mdi"
@@ -71,7 +72,8 @@
                             <button class="btn__mdi"
                                     @click="sortList('currency', true)">
                                 <i class="mdi mdi-chevron-down"></i>
-                            </button></th>
+                            </button>
+                        </th>
                     </tr>
                     <tr v-for="(item, index) in sortedList">
                         <td>
@@ -118,7 +120,7 @@
                     <h4 class="modal-title">Change data</h4>
                 </div>
                 <div class="modal-body">
-                    <input :type="modals.edit.name === 'currency' ? 'number' : 'text'"  class="form-control"
+                    <input :type="modals.edit.name === 'currency' ? 'number' : 'text'" class="form-control"
                            v-model="modals.edit.value">
                 </div>
                 <div class="modal-footer">

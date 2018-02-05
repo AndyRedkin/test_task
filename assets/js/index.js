@@ -207,10 +207,14 @@ new Vue({
     test: false
   },
   created() {
-    return this.$http.get(`/list`).then(response => {
-      this.list = response.list;
+    /**
+     * Получение списка итемов
+     */
+    return this.$http.get(`/list`).then(res => {
+      this.list = res.list;
     }).catch(err => {
       console.log(err);
+      //Это пока хардкорно забитые данные так как нету нормального бека
       this.list = window.list ? window.list : data;
     });
   },
@@ -255,12 +259,14 @@ new Vue({
       return this.$http.post(`/item`, {
         list_item_id: this.modals.edit.index
       }).then(res => {
-        if (this.modals.edit.name === 'currency') {
-          this.list[this.modals.edit.index][this.modals.edit.name] = parseInt(this.modals.edit.value ? this.modals.edit.value : 0);
-        } else {
-          this.list[this.modals.edit.index][this.modals.edit.name] = this.modals.edit.value;
+        if (res) {
+          if (this.modals.edit.name === 'currency') {
+            this.list[this.modals.edit.index][this.modals.edit.name] = parseInt(this.modals.edit.value ? this.modals.edit.value : 0);
+          } else {
+            this.list[this.modals.edit.index][this.modals.edit.name] = this.modals.edit.value;
+          }
+          this.modals.edit.value = null;
         }
-        this.modals.edit.value = null;
       }).catch(error => {
         console.error(error);
         /**
