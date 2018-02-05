@@ -99,7 +99,7 @@ new _vue2.default({
       if (newValue) {
         this.filter.filteredList = this.list.filter(function (item) {
           for (var key in item) {
-            if (item[key].toString().toLowerCase().match(newValue)) {
+            if (item[key].toString().toLowerCase().match(newValue.toLowerCase())) {
               return item;
             }
           }

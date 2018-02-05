@@ -223,7 +223,7 @@ new Vue({
       if (newValue) {
         this.filter.filteredList = this.list.filter((item) => {
           for (let key in item) {
-            if (item[key].toString().toLowerCase().match(newValue)) {
+            if (item[key].toString().toLowerCase().match(newValue.toLowerCase())) {
               return item;
             }
           }
